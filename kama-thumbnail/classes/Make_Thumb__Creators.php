@@ -19,14 +19,16 @@ trait Make_Thumb__Creators {
 		try {
 
 			// кэширование readImageBlob
-			if (isset($this->args["imagick_readImageBlob_cache"]) && $this->args["imagick_readImageBlob_cache"] && isset($GLOBALS['kama_imagickBlobCache_'.$this->src]) && $GLOBALS['kama_imagickBlobCache_'.$this->src]){
+			if (!empty($GLOBALS['kama_imagickBlobCache_active']) && !empty($this->args["imagick_readImageBlob_cache"]) && !empty($GLOBALS['kama_imagickBlobCache_'.$this->src])){
 				$image = clone $GLOBALS['kama_imagickBlobCache_'.$this->src];
 			} else {
 				$image = new \Imagick();
 
 				$image->readImageBlob( $img_string );
 
-				$GLOBALS['kama_imagickBlobCache_'.$this->src] = clone $image;
+				if (!empty($GLOBALS['kama_imagickBlobCache_active'])){
+					$GLOBALS['kama_imagickBlobCache_'.$this->src] = clone $image;
+				}
 			}
 
 			// Select the first frame to handle animated images properly
@@ -40,7 +42,7 @@ trait Make_Thumb__Creators {
 				$image->setImageCompression( \Imagick::COMPRESSION_JPEG );
 			}
 			if( 'PNG' === $format ){
-				$image->setOption( 'png:compression-level', $this->quality );
+				$image->setOption( 'png:compression-level', $this->quality_png );
 			}
 
 			$image->setImageCompressionQuality( $this->quality );
@@ -190,7 +192,7 @@ trait Make_Thumb__Creators {
 				$func_name( $thumb, $this->thumb_path );
 				break;
 			case 'imagepng':
-				$quality = floor( $this->quality / 10 );
+				$quality = floor( $this->quality_png / 10 );
 				$func_name( $thumb, $this->thumb_path, $quality );
 				break;
 			// imageavif, imagejpeg

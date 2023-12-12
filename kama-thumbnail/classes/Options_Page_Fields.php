@@ -92,6 +92,12 @@ class Options_Page_Fields {
 		<p class="description" style="display:inline-block;">'. __('Quality of creating thumbs from 0 to 100. Default:','kama-thumbnail') .' <code>'. $this->def_opt['quality'] .'</code></p>';
 	}
 
+	public function quality_png(): string {
+		return '
+		<code>PNG quality</code> <input type="number" name="'. $this->opt->opt_name .'[quality_png]" value="'. esc_attr( $this->opt->quality_png ) .'" style="width:60px;">
+		<p class="description" style="display:inline-block;">'. __('Quality of creating PNG thumbs from 0 to 95. "90 - 9 compression level + 5 - filter type". Default:','kama-thumbnail') .' <code>'. $this->def_opt['quality_png'] .'</code></p>';
+	}
+
 	public function no_stub(): string {
 		return '
 		<label>

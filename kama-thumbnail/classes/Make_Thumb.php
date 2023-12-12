@@ -26,6 +26,9 @@ class Make_Thumb {
 	/** @var int|float */
 	public $quality;
 
+	/** @var int|float */
+	public $quality_png;
+
 	/** @var int */
 	public $post_id;
 
@@ -209,6 +212,7 @@ class Make_Thumb {
 			'attach_id'    => 0,
 			'src'          => $src,
 			'quality'      => kthumb_opt()->quality,
+			'quality_png'      => kthumb_opt()->quality_png,
 			'post_id'      => '',
 			'rise_small'   => kthumb_opt()->rise_small,
 			'crop'         => true,
@@ -273,6 +277,7 @@ class Make_Thumb {
 		isset( $rg['w'] )           && ( $rg['width']   = $rg['w'] );
 		isset( $rg['h'] )           && ( $rg['height']  = $rg['h'] );
 		isset( $rg['q'] )           && ( $rg['quality'] = $rg['q'] );
+		isset( $rg['q_p'] )           && ( $rg['quality_png'] = $rg['q_p'] );
 		isset( $rg['post'] )        && ( $rg['post_id'] = $rg['post'] );
 		is_object( $rg['post_id'] ) && ( $rg['post_id'] = $rg['post_id']->ID );
 		isset( $rg['url'] )         && ( $rg['src']     = $rg['url'] );
@@ -355,6 +360,7 @@ class Make_Thumb {
 		$this->width      = (int)    $rg['width'];
 		$this->height     = (int)    $rg['height'];
 		$this->quality    = (int)    $rg['quality'];
+		$this->quality_png    = (int)    $rg['quality'];
 		$this->post_id    = (int)    $rg['post_id'];
 		$this->rise_small = (bool)   $rg['rise_small'];
 		$this->no_stub    = $rg['yes_stub'] ? false : (bool) $rg['no_stub'];

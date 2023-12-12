@@ -13,6 +13,7 @@ namespace Kama_Thumbnail;
  * @property-read int    $auto_clear_days
  * @property-read bool   $rise_small
  * @property-read int    $quality
+ * @property-read int    $quality_png
  * @property-read array  $allow_hosts
  * @property-read float  $stop_creation_sec
  * @property-read bool   $webp
@@ -67,6 +68,7 @@ class Options {
 		'auto_clear_days'   => 7,
 		'rise_small'        => true,
 		'quality'           => 90,
+		'quality_png'           => 95,
 		'allow_hosts'       => [],
 		'stop_creation_sec' => 20.5,
 		'webp'              => false,

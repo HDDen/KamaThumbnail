@@ -243,6 +243,7 @@ class Options_Page {
 			'meta_key'          => $fields->meta_key(),
 			'allow_hosts'       => $fields->allow_hosts(),
 			'quality'           => $fields->quality(),
+			'quality_png'           => $fields->quality_png(),
 			'no_stub'           => $fields->no_stub(),
 			'rise_small'        => $fields->rise_small(),
 			'use_in_content'    => $fields->use_in_content(),
