@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Kama Thumbnail
+ * Plugin Name: Kama Thumbnail (HDDen fork)
  *
  * Description: Creates post thumbnails on fly and cache it. The Image is taken from: post thumbnail OR first img in post content OR first post attachment. To show IMG use <code>kama_thumb_a_img()</code>, <code>kama_thumb_img()</code>, <code>kama_thumb_src()</code> functions in theme/plugin.
  *
