@@ -14,7 +14,7 @@
  * Requires PHP: 7.1
  * Requires at least: 4.7
  *
- * Version: 3.5.1
+ * Version: 3.5.1.1
  */
 
 defined( 'ABSPATH' ) || exit;

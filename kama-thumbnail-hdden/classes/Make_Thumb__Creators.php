@@ -83,6 +83,10 @@ trait Make_Thumb__Creators {
 			}
 			else {
 
+				if (!empty($this->args["progressive"])){
+					$image->setInterlaceScheme(\Imagick::INTERLACE_PLANE);
+				}
+				
 				$image->writeImage( $this->thumb_path );
 
 				$this->metadata->thumb_format = $image->getImageFormat();

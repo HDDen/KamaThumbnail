@@ -238,6 +238,7 @@ class Make_Thumb {
 
 			// other
 			'force_lib'    => '',
+			'progressive' => false
 		];
 
 		/**
